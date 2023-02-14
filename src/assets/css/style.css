@@ -1,8 +1,4 @@
-/*Fonts Family*/
-/*Colors*/
-/*Basic settings*/
 html {
-  /* overflow-x: hidden; */
   font-size: 10px;
 }
 
@@ -47,7 +43,6 @@ textarea:focus {
 }
 
 .form {
-  /*margin-top: 2rem;*/
   padding: 2rem 5rem;
   text-align: center;
   border-radius: 1rem;
@@ -195,7 +190,6 @@ textarea:focus {
 .header {
   height: 10rem;
   background-color: #ffffff;
-  /*border: 1px solid red;*/
 }
 
 .header .logo {
@@ -232,14 +226,6 @@ textarea:focus {
   font-weight: 700;
   font-style: normal;
   color: #55a831;
-  /*p {
-				display: inline-block;
-			vertical-align: top;
-				font-size: 1.4rem;
-				line-height: 1.2;
-				.bold();
-				color: @green;
-			}*/
 }
 
 .header_btn_wrap {
@@ -264,7 +250,6 @@ textarea:focus {
 .header .working_hours {
   height: 10rem;
   display: table;
-  /*text-align: right;*/
 }
 
 .header .working_hours_img {
@@ -309,7 +294,6 @@ textarea:focus {
   font-weight: 700;
   font-style: normal;
   color: #333333;
-  /*border: 1px solid blue;*/
 }
 
 .header .contact_us_wrap a img {
@@ -333,7 +317,6 @@ textarea:focus {
 
 .main h1 {
   margin: 0;
-  /*margin-top: -4rem;*/
   font-size: 5.5rem;
   line-height: 1.5;
   font-family: 'Open Sans', sans-serif;
@@ -383,6 +366,11 @@ textarea:focus {
   display: inline-block;
 }
 
+.glazing_slider {
+  display: flex;
+  justify-content: space-between;
+}
+
 .glazing_block img {
   display: block;
   margin: 0 auto;
@@ -393,10 +381,6 @@ textarea:focus {
   font-size: 1.8rem;
   font-weight: 600;
   text-decoration: underline;
-  /*&:focus {
-				text-decoration: none;
-				color: #454545;
-			}*/
 }
 
 .glazing_block a:hover {
@@ -510,6 +494,11 @@ textarea:focus {
   background-color: #f7f7f7;
 }
 
+.decoration_slider {
+  display: flex;
+  justify-content: space-between;
+}
+
 .decoration_item {
   text-align: center;
 }
@@ -530,18 +519,9 @@ textarea:focus {
   border: none;
   text-decoration: none;
   color: #0089cd;
-  /*border-top: 1rem solid @blue;
-				height: 8rem;
-				padding: 2rem 1rem;
-				background: -webkit-linear-gradient(-90deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);
-				background: -moz-linear-gradient(-90deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);
-				background: -o-linear-gradient(-90deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);
-				background: -ms-linear-gradient(-90deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);
-				background: linear-gradient(180deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);*/
 }
 
 .decoration_item .no_click {
-  /*border: 1px solid red;*/
   height: 8rem;
   padding: 2rem 0;
   border-top: 1rem solid #f7f7f7;
@@ -603,7 +583,6 @@ textarea:focus {
 }
 
 .works a[data-fancybox="gallery"] .lupa {
-  /* position: ; */
   top: 0;
   left: 0;
   left: 50%;
@@ -732,13 +711,6 @@ textarea:focus {
   color: black;
 }
 
-
-
-
-
-
-
-
 /*Contacts*/
 .contacts {
   padding: 6rem 0;
@@ -816,12 +788,10 @@ textarea:focus {
 .footer .contacts {
   padding: 0;
   margin: auto;
-  /*border: 1px solid red;*/
   text-align: right;
 }
 
 .footer .contacts a {
-  /*border: 1px solid blue;*/
   display: block;
 }
 
@@ -878,7 +848,6 @@ textarea:focus {
 .popup_content,
 .popup_engineer_content,
 .popup_calc_end_content {
-  /* display: none; */
   position: fixed;
   top: 10%;
   left: 50%;
@@ -1008,11 +977,6 @@ textarea:focus {
   width: 40rem;
   padding: 1rem 5rem 4rem;
   background-color: #ffffff;
-  /*	label {
-			margin-bottom: 1rem;
-			font-size: 1.5rem;
-			.regular();
-		}*/
 }
 
 .popup_calc_profile_content h2 {
@@ -1454,12 +1418,10 @@ textarea:focus {
   .footer .contacts {
     padding: 0;
     margin: auto;
-    /*border: 1px solid red;*/
     text-align: center;
   }
 
   .footer .contacts a {
-    /*border: 1px solid blue;*/
     display: block;
   }
 
@@ -1577,7 +1539,6 @@ textarea:focus {
 
   .header .contact_us_wrap a img {
     margin-right: 0.5rem;
-    /*width: 10%;*/
   }
 
   .header .contact_us_wrap .phone_link {
