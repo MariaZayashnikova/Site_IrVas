@@ -1,5 +1,5 @@
-import postData from './services/service';
-import checkNumInputs from './checkNumInputs';
+import postData from './services/PostService';
+import checkNumInputs from './services/checkNumInputs';
 
 const forms = (state) => {
     let form = document.querySelectorAll('form');
@@ -11,7 +11,7 @@ const forms = (state) => {
     };
 
     checkNumInputs('input[name="user_phone"]');
-    
+
     form.forEach(item => {
         item.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -20,15 +20,15 @@ const forms = (state) => {
             statusMessage.classList.add('status');
             statusMessage.textContent = message.loading;
             item.append(statusMessage);
-    
+
             let formData = new FormData(item);
-            if(item.getAttribute('data-form') === 'calc_end') {
+            if (item.getAttribute('data-form') === 'calc_end') {
                 for (let key in state) {
                     formData.append(key, state[key]);
                 }
             };
             let json = JSON.stringify(Object.fromEntries(formData.entries()));
-            
+
             postData(json)
                 .then(() => {
                     item.reset();

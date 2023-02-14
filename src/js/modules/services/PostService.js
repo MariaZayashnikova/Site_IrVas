@@ -7,9 +7,7 @@ let postData = async (data) => {
         body: data
     });
 
-    if (!res.ok) {
-        throw new Error(`Error. Status: ${res.status}`);
-    }
+    if (!res.ok) throw new Error(`Error. Status: ${res.status}`);
 
     return await res.text();
 };

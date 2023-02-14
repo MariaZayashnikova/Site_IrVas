@@ -1,11 +1,11 @@
-import checkNumInputs from './checkNumInputs';
+import checkNumInputs from './services/checkNumInputs';
 
 const changeModalState = (state) => {
     const windowForm = document.querySelectorAll('.balcon_icons_img'),
-          windowWidth = document.querySelectorAll('#width'),
-          windowHeight = document.querySelectorAll('#height'),
-          windowType = document.querySelectorAll('#view_type'),
-          windowProfile = document.querySelectorAll('.checkbox');
+        windowWidth = document.querySelectorAll('#width'),
+        windowHeight = document.querySelectorAll('#height'),
+        windowType = document.querySelectorAll('#view_type'),
+        windowProfile = document.querySelectorAll('.checkbox');
 
     checkNumInputs('#width');
     checkNumInputs('#height');
@@ -13,16 +13,16 @@ const changeModalState = (state) => {
     function bindActionToElems(event, elem, prop) {
         elem.forEach((item, i) => {
             item.addEventListener(event, (e) => {
-                switch(item.nodeName) {
+                switch (item.nodeName) {
                     case 'SPAN':
                         state[prop] = i;
                         break;
                     case 'INPUT':
-                        if(item.getAttribute('type') === 'checkbox') {
+                        if (item.getAttribute('type') === 'checkbox') {
                             windowProfile.forEach(profile => {
                                 profile.checked = false;
                             });
-                            if(e.target === item) {
+                            if (e.target === item) {
                                 item.checked = true;
                             }
                             state[prop] = item.getAttribute('data-progile');
@@ -30,11 +30,10 @@ const changeModalState = (state) => {
                             state[prop] = item.value;
                         };
                         break;
-                    case 'SELECT': 
+                    case 'SELECT':
                         state[prop] = item.value;
                         break;
                 }
-                console.log(state);
             });
         });
     }

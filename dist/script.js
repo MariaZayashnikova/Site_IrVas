@@ -18413,7 +18413,7 @@ window.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _checkNumInputs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkNumInputs */ "./src/js/modules/checkNumInputs.js");
+/* harmony import */ var _services_checkNumInputs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/checkNumInputs */ "./src/js/modules/services/checkNumInputs.js");
 
 
 
@@ -18423,8 +18423,8 @@ var changeModalState = function changeModalState(state) {
       windowHeight = document.querySelectorAll('#height'),
       windowType = document.querySelectorAll('#view_type'),
       windowProfile = document.querySelectorAll('.checkbox');
-  Object(_checkNumInputs__WEBPACK_IMPORTED_MODULE_1__["default"])('#width');
-  Object(_checkNumInputs__WEBPACK_IMPORTED_MODULE_1__["default"])('#height');
+  Object(_services_checkNumInputs__WEBPACK_IMPORTED_MODULE_1__["default"])('#width');
+  Object(_services_checkNumInputs__WEBPACK_IMPORTED_MODULE_1__["default"])('#height');
 
   function bindActionToElems(event, elem, prop) {
     elem.forEach(function (item, i) {
@@ -18456,8 +18456,6 @@ var changeModalState = function changeModalState(state) {
             state[prop] = item.value;
             break;
         }
-
-        console.log(state);
       });
     });
   }
@@ -18470,35 +18468,6 @@ var changeModalState = function changeModalState(state) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (changeModalState);
-
-/***/ }),
-
-/***/ "./src/js/modules/checkNumInputs.js":
-/*!******************************************!*\
-  !*** ./src/js/modules/checkNumInputs.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.string.replace */ "./node_modules/core-js/modules/es.string.replace.js");
-/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-var checkNumInputs = function checkNumInputs(selector) {
-  var inputs = document.querySelectorAll(selector);
-  inputs.forEach(function (input) {
-    input.addEventListener('input', function () {
-      input.value = input.value.replace(/\D/, '');
-    });
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (checkNumInputs);
 
 /***/ }),
 
@@ -18525,8 +18494,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
 /* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _services_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/service */ "./src/js/modules/services/service.js");
-/* harmony import */ var _checkNumInputs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./checkNumInputs */ "./src/js/modules/checkNumInputs.js");
+/* harmony import */ var _services_PostService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/PostService */ "./src/js/modules/services/PostService.js");
+/* harmony import */ var _services_checkNumInputs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/checkNumInputs */ "./src/js/modules/services/checkNumInputs.js");
 
 
 
@@ -18544,7 +18513,7 @@ var forms = function forms(state) {
     good: "Успешно добавлено!",
     err: "Что-то пошло не так, попробуйте позже"
   };
-  Object(_checkNumInputs__WEBPACK_IMPORTED_MODULE_8__["default"])('input[name="user_phone"]');
+  Object(_services_checkNumInputs__WEBPACK_IMPORTED_MODULE_8__["default"])('input[name="user_phone"]');
   form.forEach(function (item) {
     item.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -18562,7 +18531,7 @@ var forms = function forms(state) {
 
       ;
       var json = JSON.stringify(Object.fromEntries(formData.entries()));
-      Object(_services_service__WEBPACK_IMPORTED_MODULE_7__["default"])(json).then(function () {
+      Object(_services_PostService__WEBPACK_IMPORTED_MODULE_7__["default"])(json).then(function () {
         item.reset();
         statusMessage.textContent = message.good;
       }).catch(function () {
@@ -18720,10 +18689,10 @@ var modals = function modals() {
 
 /***/ }),
 
-/***/ "./src/js/modules/services/service.js":
-/*!********************************************!*\
-  !*** ./src/js/modules/services/service.js ***!
-  \********************************************/
+/***/ "./src/js/modules/services/PostService.js":
+/*!************************************************!*\
+  !*** ./src/js/modules/services/PostService.js ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18780,6 +18749,35 @@ var postData = function postData(data) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (postData);
+
+/***/ }),
+
+/***/ "./src/js/modules/services/checkNumInputs.js":
+/*!***************************************************!*\
+  !*** ./src/js/modules/services/checkNumInputs.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.string.replace */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var checkNumInputs = function checkNumInputs(selector) {
+  var inputs = document.querySelectorAll(selector);
+  inputs.forEach(function (input) {
+    input.addEventListener('input', function () {
+      input.value = input.value.replace(/\D/, '');
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (checkNumInputs);
 
 /***/ }),
 
