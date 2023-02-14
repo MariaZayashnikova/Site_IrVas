@@ -18618,10 +18618,7 @@ var modals = function modals() {
         scroll = findScroll();
     trigger.forEach(function (item) {
       item.addEventListener('click', function (e) {
-        if (e.target) {
-          e.preventDefault();
-        }
-
+        if (e.target) e.preventDefault();
         windows.forEach(function (item) {
           item.style.display = 'none';
         });
@@ -18863,17 +18860,20 @@ var timer = function timer(selectorTimer, endTime) {
       containerSeconds = timer.querySelector('#seconds');
 
   function addZero(num) {
-    if (num < 10) {
-      return "0".concat(num);
-    } else {
-      return num;
-    }
+    if (num < 10) return "0".concat(num);else return num;
   }
 
   ;
 
   function upDate() {
-    var data = Date.parse(endTime) - Date.parse(new Date());
+    var data;
+
+    if (Date.parse(new Date()) > Date.parse(endTime)) {
+      data = 0;
+    } else {
+      data = Date.parse(endTime) - Date.parse(new Date());
+    }
+
     var days = addZero(Math.floor(data / (1000 * 60 * 60 * 24))),
         hours = addZero(Math.floor(data / (1000 * 60 * 60) % 24)),
         minutes = addZero(Math.floor(data / (1000 * 60) % 60)),
