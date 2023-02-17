@@ -4,7 +4,7 @@
 Курсами были предоставлены исходники проекта – HTML, CSS.<br>
 <h4>Проект выполнен на <i>vanilla JS</i>, для сборки проекта используются <i>webpack and gulp</i>.</h4>
 <h3>Посмотреть проект можно тут:</h3>
-[site_IrVas.webm](https://user-images.githubusercontent.com/65776059/219672069-736143e6-93bd-42a7-b609-3e481ea10c98.webm)
+https://user-images.githubusercontent.com/65776059/219672069-736143e6-93bd-42a7-b609-3e481ea10c98.webm
 
 
 Задачи проекта:<br>
