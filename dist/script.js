@@ -4741,8 +4741,9 @@ var modals = function modals() {
   }
 
   function showModalInTime(selector, time) {
+    var modal = document.querySelector(selector);
     setTimeout(function () {
-      document.querySelector(selector).style.display = "block";
+      modal.style.display = 'block';
       document.body.style.overflow = "hidden";
     }, time);
   }
@@ -4763,7 +4764,8 @@ var modals = function modals() {
   bindModal('.phone_link', '.popup', '.popup .popup_close');
   bindModal('.popup_calc_btn', '.popup_calc', '.popup_calc_close');
   bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
-  bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false); // showModalInTime('.popup', 6000);
+  bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
+  showModalInTime('.popup', 120000);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);
@@ -4958,16 +4960,16 @@ var timer = function timer(selectorTimer, endTime) {
       data = Date.parse(endTime) - Date.parse(new Date());
     }
 
-    var days = addZero(Math.floor(data / (1000 * 60 * 60 * 24))),
+    var days = Math.floor(data / (1000 * 60 * 60 * 24)),
         hours = addZero(Math.floor(data / (1000 * 60 * 60) % 24)),
         minutes = addZero(Math.floor(data / (1000 * 60) % 60)),
         seconds = addZero(Math.floor(data / 1000 % 60));
-    containerDays.textContent = days;
+    containerDays.textContent = addZero(days);
     containerHours.textContent = hours;
     containerMinutes.textContent = minutes;
     containerSeconds.textContent = seconds;
 
-    if (seconds === 0) {
+    if (days === 0) {
       clearInterval(timerId);
     }
   }

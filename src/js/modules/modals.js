@@ -53,8 +53,9 @@ const modals = () => {
     }
 
     function showModalInTime(selector, time) {
+        let modal = document.querySelector(selector);
         setTimeout(() => {
-            document.querySelector(selector).style.display = "block";
+            modal.style.display = 'block';
             document.body.style.overflow = "hidden";
         }, time);
     }
@@ -78,7 +79,7 @@ const modals = () => {
     bindModal('.popup_calc_btn', '.popup_calc', '.popup_calc_close');
     bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
     bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
-    // showModalInTime('.popup', 6000);
+    showModalInTime('.popup', 120000);
 }
 
 export default modals;

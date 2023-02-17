@@ -18,17 +18,17 @@ const timer = (selectorTimer, endTime) => {
             data = Date.parse(endTime) - Date.parse(new Date());
         }
 
-        let days = addZero(Math.floor(data / (1000 * 60 * 60 * 24))),
+        let days = Math.floor(data / (1000 * 60 * 60 * 24)),
             hours = addZero(Math.floor(data / (1000 * 60 * 60) % 24)),
             minutes = addZero(Math.floor(data / (1000 * 60) % 60)),
             seconds = addZero(Math.floor(data / 1000 % 60));
 
-        containerDays.textContent = days;
+        containerDays.textContent = addZero(days);
         containerHours.textContent = hours;
         containerMinutes.textContent = minutes;
         containerSeconds.textContent = seconds;
 
-        if (seconds === 0) {
+        if (days === 0) {
             clearInterval(timerId);
         }
     }
