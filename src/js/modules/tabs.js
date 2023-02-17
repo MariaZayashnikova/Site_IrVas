@@ -3,15 +3,15 @@ const tabs = (headerSelector, tabsSelector, contentsSelector, activeClass, displ
         tabs = document.querySelectorAll(tabsSelector),
         contents = document.querySelectorAll(contentsSelector);
 
-    function hiddeContent () {
+    function hiddeContent() {
         contents.forEach(item => {
             item.style.display = 'none';
         });
 
         tabs.forEach(item => {
             item.classList.remove(activeClass);
-            
-            if(item.querySelector('a')) {
+
+            if (item.querySelector('a')) {
                 item.querySelector('a').classList.remove(activeClass);
             }
         });
@@ -21,7 +21,7 @@ const tabs = (headerSelector, tabsSelector, contentsSelector, activeClass, displ
         contents[i].style.display = display;
 
         tabs[i].classList.add(activeClass);
-        if(tabs[i].querySelector('a')) {
+        if (tabs[i].querySelector('a')) {
             tabs[i].querySelector('a').classList.add(activeClass);
         }
     }
@@ -29,14 +29,13 @@ const tabs = (headerSelector, tabsSelector, contentsSelector, activeClass, displ
     hiddeContent();
     showContent();
 
-
     header.addEventListener('click', (e) => {
         let target = e.target;
-        if(target &&
+        if (target &&
             (target.classList.contains(tabsSelector.replace(/\./, "")) ||
-            target.parentNode.classList.contains(tabsSelector.replace(/\./, "")))) {
+                target.parentNode.classList.contains(tabsSelector.replace(/\./, "")))) {
             tabs.forEach((item, i) => {
-                if(target == item || target.parentNode == item) {
+                if (target == item || target.parentNode == item) {
                     hiddeContent();
                     showContent(i);
                 }

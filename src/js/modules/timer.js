@@ -6,29 +6,32 @@ const timer = (selectorTimer, endTime) => {
         containerSeconds = timer.querySelector('#seconds');
 
     function addZero(num) {
-        if(num < 10) {
-            return `0${num}`;
-        } else {
-            return num;
-        }
+        if (num < 10) return `0${num}`;
+        else return num;
     };
 
     function upDate() {
-        let data = Date.parse(endTime) - Date.parse(new Date());
-        let days = addZero(Math.floor(data / (1000*60*60*24))),
-            hours = addZero(Math.floor(data / (1000*60*60) % 24)),
-            minutes = addZero(Math.floor(data / (1000*60) % 60)),
+        let data;
+        if (Date.parse(new Date()) > Date.parse(endTime)) {
+            data = 0;
+        } else {
+            data = Date.parse(endTime) - Date.parse(new Date());
+        }
+
+        let days = Math.floor(data / (1000 * 60 * 60 * 24)),
+            hours = addZero(Math.floor(data / (1000 * 60 * 60) % 24)),
+            minutes = addZero(Math.floor(data / (1000 * 60) % 60)),
             seconds = addZero(Math.floor(data / 1000 % 60));
 
-        containerDays.textContent = days;
+        containerDays.textContent = addZero(days);
         containerHours.textContent = hours;
         containerMinutes.textContent = minutes;
         containerSeconds.textContent = seconds;
 
-        if(seconds === 0) {
+        if (days === 0) {
             clearInterval(timerId);
         }
-    }    
+    }
     upDate();
     let timerId = setInterval(upDate, 1000);
 }

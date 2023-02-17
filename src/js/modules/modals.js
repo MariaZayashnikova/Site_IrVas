@@ -9,9 +9,7 @@ const modals = () => {
 
         trigger.forEach(item => {
             item.addEventListener('click', (e) => {
-                if(e.target) {
-                    e.preventDefault();
-                }
+                if (e.target) e.preventDefault();
 
                 windows.forEach(item => {
                     item.style.display = 'none';
@@ -34,7 +32,7 @@ const modals = () => {
         });
 
         modal.addEventListener('click', (e) => {
-            if(e.target === modal && closeClickOferlay) {
+            if (e.target === modal && closeClickOferlay) {
                 windows.forEach(item => {
                     item.style.display = 'none';
                 });
@@ -43,7 +41,7 @@ const modals = () => {
             }
         });
 
-        if(modalCalcEnd) {
+        if (modalCalcEnd) {
             modalCalcEnd.addEventListener('submit', (e) => {
                 e.preventDefault();
                 setTimeout(() => {
@@ -53,10 +51,11 @@ const modals = () => {
             });
         }
     }
-    
+
     function showModalInTime(selector, time) {
+        let modal = document.querySelector(selector);
         setTimeout(() => {
-            document.querySelector(selector).style.display = "block";
+            modal.style.display = 'block';
             document.body.style.overflow = "hidden";
         }, time);
     }
@@ -74,14 +73,13 @@ const modals = () => {
 
         return scrollWidth;
     }
-    
 
     bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
     bindModal('.phone_link', '.popup', '.popup .popup_close');
     bindModal('.popup_calc_btn', '.popup_calc', '.popup_calc_close');
     bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
     bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
-    // showModalInTime('.popup', 6000);
+    showModalInTime('.popup', 120000);
 }
 
 export default modals;
